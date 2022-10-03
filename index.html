@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Contador - Esferas - por Everton Oliveira</title>
+</head>
+<body>
+    <header>
+        <h1>Contador</h1>
+    </header>
+    <main>
+
+        <span class="relogio">
+            <input type="number" min="0" max="59" placeholder="00" id="hora"  required />
+            <p>:</p>
+            <input type="number" min="0" max="99" placeholder="00" id="minuto"  required />
+            <p>:</p>
+            <input type="number" min="0" max="59" placeholder="00" id="segundo" required />
+            <!-- <button id="enviar">OK</button> -->
+        </span>
+
+       <span id="btn-config">
+           <button type="button" name="iniciar" id="btn-play-pause">Iniciar</button>
+           <button type="button" name="resetar" id="btn-resetar" >reset</button>
+        </span>
+           
+        
+        <!-- <span>
+            <h1 type="number" max="59" id="mostrador"> 00:00 </h1>
+        </span> -->
+    </main>
+    
+    <footer>
+        <p>Criado por Everton Oliveira para o teste da vaga de estágio da Esferas </p>  
+    </footer>
+    
+    <script src="./script.js"></script>
+
+</body>
+</html>
