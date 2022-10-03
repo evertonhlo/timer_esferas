@@ -16,7 +16,7 @@ const entradaSegundos = document.getElementById('segundo')
 entradaSegundos.addEventListener('change', pegarConteudo)
 
 
-function pegarConteudo(){
+function pegarConteudo() {
     console.log(entradaSegundos.value)
 }
 
@@ -57,7 +57,7 @@ function pegarConteudo() {
 
 //     const pegaMostrador = document.getElementById('mostrador')
 //         pegaMostrador.innerHTML = entradaSegundos.value
-    
+
 //     document.getElementById('mostrador').replaceWith(pegaMostrador)
 
 // }
@@ -70,54 +70,65 @@ const botaoCronometro = document.getElementById('btn-play-pause')
 
 botaoCronometro.addEventListener('click', cronometrando)
 
-function cronometrando(){
-    
-var cronometro =   setInterval(()=>{
-        retrocederSegundos = entradaSegundos.value --
-        console.log(retrocederSegundos) 
-        if(entradaSegundos.value <0){
-               entradaSegundos.value = 59
-                     }  
-        if(entradaSegundos.value >= 59){
-            retrocederMinutos = entradaMinutos.value--
-        }   
-        if(entradaMinutos.value <=0){
-            entradaMinutos.value = ''
-        } 
-        if(entradaSegundos.value == '' && entradaMinutos.value == ''){
-            entradaSegundos.value = ''
-          
+function cronometrando() {
+
+    var cronometro = setInterval(() => {
+        retrocederSegundos = entradaSegundos.value--
+        console.log(retrocederSegundos)
+        if (entradaSegundos.value < 0) {
+            entradaSegundos.value = 59
         }
-      
-        if (entradaMinutos.value == '' && entradaSegundos.value ==0 ){
-             retrocedHoras = entradaHoras.value --
-      }
-    if (entradaSegundos.value == 0) {
-        entradaSegundos ==''
-    }
+        if (entradaSegundos.value >= 59) {
+            retrocederMinutos = entradaMinutos.value--
+        }
+        if(entradaSegundos.value == 0 && entradaMinutos.value == 0 && entradaHoras.value ==''){
+            entradaHoras.value = 0
+            clearInterval(cronometro)
+        }
+        if (entradaMinutos.value <= 0) {
+            entradaMinutos.value = ''
+        }
+        if (entradaSegundos.value == '' && entradaMinutos.value == '') {
+            entradaHoras.value = ''
 
-      if(entradaHoras.value==0  && entradaMinutos.value ==''  && entradaSegundos.value==0){
-        entradaHoras.value = ''
-        entradaMinutos.value =''
-        entradaSegundos.value =''
-       clearInterval(cronometro)
-      }
-     
+        }
 
-    const botaoResetar = document.getElementById('btn-resetar')
+        // if (entradaMinutos.value == '' && entradaSegundos.value == 0) {
+        //     retrocedHoras = entradaHoras.value--
+        // }
+        if (entradaSegundos.value == 0) {
+            entradaSegundos.value == ''
+        }
 
-    botaoResetar.addEventListener('click', zerar)
 
-    function zerar() {
-  
-        console.log('oi')
-        clearInterval(cronometro)
-        entradaHoras.value = ''
-        entradaMinutos.value = ''
-        entradaSegundos.value = ''
-    }
+        if(entradaMinutos.value == 0 && entradaSegundos.value == 0){
+            entradaHoras.value= 0
+            
+        }
 
-    },200)}
+        if (entradaHoras.value == 0 && entradaMinutos.value == '' && entradaSegundos.value == 0) {
+            entradaHoras.value = ''
+            entradaMinutos.value = ''
+            entradaSegundos.value = ''
+            clearInterval(cronometro)
+        }
+
+
+        const botaoResetar = document.getElementById('btn-resetar')
+
+        botaoResetar.addEventListener('click', zerar)
+
+        function zerar() {
+
+            console.log('oi')
+            clearInterval(cronometro)
+            entradaHoras.value = ''
+            entradaMinutos.value = ''
+            entradaSegundos.value = ''
+        }
+
+    }, 200)
+}
 
 
 
