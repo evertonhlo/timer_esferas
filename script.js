@@ -34,6 +34,91 @@ function pegarConteudo() {
 
 
 
+
+let botaoCronometro = document.getElementById('btn-play-pause')
+
+
+
+botaoCronometro.addEventListener('click', cronometrando)
+
+
+;
+
+function cronometrando() {
+    
+    var cronometro = setInterval(() => {
+        var retrocedeSegundos =  entradaSegundos.value --
+        var retrocedeMinutos =  entradaMinutos.value - 1
+        var retrocedeHoras=  entradaHoras.value - 1
+        console.log(cronometro)
+
+        if (retrocedeSegundos ===0) {
+           entradaSegundos.value = 59
+            }
+       
+        if(entradaSegundos.value === 59 && entradaMinutos.value ===0){
+            entradaHoras.value = entradaHoras.value - 1
+        }
+        if (entradaSegundos.value  <1 && entradaMinutos.value >=1 ){
+              entradaMinutos.value = retrocedeMinutos
+        }
+        if (entradaSegundos.value  ==0 && entradaMinutos.value <=1 && entradaHoras.value >=1){
+             entradaHoras.value = retrocedeHoras
+            entradaSegundos.value = 0
+            entradaMinutos.value = 59
+        }
+        if(entradaMinutos.value >=0<59 && entradaSegundos.value ===0 ){
+            entradaMinutos.value = retrocedeMinutos
+            entradaSegundos.value = retrocedeSegundos
+        }
+
+        // if (entradaMinutos.value === 0 && entradaSegundos.value === 0 && entradaHoras >=1){
+        //     entradaHoras.value = retrocedeHoras
+        //     entradaMinutos.value = entradaMinutos +1
+        // }
+         if(entradaMinutos.value <=0 && entradaSegundos.value  <=0 && entradaHoras.value <=0){
+             clearInterval(cronometro)
+         }   
+   
+
+    }, 200)
+
+}
+    // const parar = document.getElementById('btn-play-pause')
+
+    // parar.addEventListener('click', function () {
+    //     console.log('zerando')
+    //     entradaHoras.value = entradaHoras.value
+    //     entradaMinutos.value = entradaMinutos.value
+    //     entradaSegundos.value = entradaSegundos.value
+    //     clearInterval(cronometro)
+    // })
+    // const botaoResetar = document.getElementById('btn-resetar')
+    
+    // botaoResetar.addEventListener('click', zerar)
+    
+    
+    
+    //         function zerar() {
+    
+    //             clearInterval(cronometro)
+    //             console.log('zerando')
+    //             entradaHoras.value = ''
+    //             entradaMinutos.value = ''
+    //             entradaSegundos.value = ''
+    //         }
+ 
+        
+        
+        
+      
+        
+
+        // entradaSegundos.value 
+        // entradaMinutos.value = entradaMinutos.value
+        // entradaHoras.value = entradaHoras.value
+
+
 // #####
 
 // const pegaBotaoEnviar = document.getElementById('enviar')
@@ -65,80 +150,3 @@ function pegarConteudo() {
 
 
 // #####
-
-const botaoCronometro = document.getElementById('btn-play-pause')
-
-botaoCronometro.addEventListener('click', cronometrando)
-
-function cronometrando() {
-
-    var cronometro = setInterval(() => {
-        retrocederSegundos = entradaSegundos.value--
-        // console.log(retrocederSegundos)
-        if (entradaSegundos.value < 0) {
-            entradaSegundos.value = 59
-        }
-        if (entradaSegundos.value >= 59) {
-            retrocederMinutos = entradaMinutos.value--
-        }
-        if(entradaSegundos.value == 0 && entradaMinutos.value == 0 && entradaHoras.value ==''){
-            entradaHoras.value = 0
-            clearInterval(cronometro)
-        }
-        if (entradaMinutos.value <= 0) {
-            entradaMinutos.value = ''
-        }
-        if (entradaSegundos.value == '' && entradaMinutos.value == '') {
-            entradaHoras.value = ''
-
-        }
-
-        if (entradaMinutos.value == '' && entradaSegundos.value == 0) {
-            retrocedHoras = entradaHoras.value--
-        }
-        if (entradaSegundos.value == 0) {
-            entradaSegundos.value == ''
-        }
-
-
-        if(entradaMinutos.value == 0 && entradaSegundos.value == 0){
-            entradaHoras.value= 0
-            
-        }
-
-        if(entradaHoras.value  >0 && entradaMinutos.value == 0){
-            entradaMinutos.value = 59
-            // entradaHoras.value = entradaHoras.value -1
-        
-        if (entradaHoras.value == 0 && entradaMinutos.value == 0) {
-                entradaSegundos.value = entradaSegundos.value --
-                
-        }
-        if (entradaHoras.value == 0 && entradaMinutos.value == '' && entradaSegundos.value == 0) {
-            entradaHoras.value = ''
-            entradaMinutos.value = ''
-            entradaSegundos.value = ''
-            clearInterval(cronometro)
-        }
-
-
-    }}, 200)
-    const botaoResetar = document.getElementById('btn-resetar')
-    
-    botaoResetar.addEventListener('click', zerar)
-    
-    
-    
-            function zerar() {
-    
-                clearInterval(cronometro)
-                console.log('oi')
-                entradaHoras.value = ''
-                entradaMinutos.value = ''
-                entradaSegundos.value = ''
-            }
-}
-
-
-
-
