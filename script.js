@@ -74,7 +74,7 @@ function cronometrando() {
 
     var cronometro = setInterval(() => {
         retrocederSegundos = entradaSegundos.value--
-        console.log(retrocederSegundos)
+        // console.log(retrocederSegundos)
         if (entradaSegundos.value < 0) {
             entradaSegundos.value = 59
         }
@@ -106,6 +106,14 @@ function cronometrando() {
             
         }
 
+        if(entradaHoras.value == !0 && entradaMinutos.value == 0){
+            entradaMinutos.value = 59
+            entradaHoras.value = entradaHoras.value -1
+        
+            if (entradaHoras.value == 0 && entradaMinutos.value == 0) {
+                entradaSegundos.value = entradaSegundos.value --
+                
+
         if (entradaHoras.value == 0 && entradaMinutos.value == '' && entradaSegundos.value == 0) {
             entradaHoras.value = ''
             entradaMinutos.value = ''
@@ -127,7 +135,7 @@ function cronometrando() {
             entradaSegundos.value = ''
         }
 
-    }, 200)
+}}}, 200)
 }
 
 
