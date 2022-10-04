@@ -59,29 +59,22 @@ function cronometrando() {
         if(entradaSegundos.value === 59 && entradaMinutos.value ===0){
             entradaHoras.value = entradaHoras.value - 1
         }
-        if (entradaSegundos.value  <1 && entradaMinutos.value >=1 ){
-              entradaMinutos.value = retrocedeMinutos
+        if (entradaSegundos.value  ==59 && entradaMinutos.value >=1 <=59){
+            entradaMinutos.value --
+            entradaSegundos.value = 59
         }
-        if (entradaSegundos.value  ==0 && entradaMinutos.value <=1 && entradaHoras.value >=1){
+        if (entradaSegundos.value  >=0 && entradaMinutos.value <=1 && entradaHoras.value >=1){
              entradaHoras.value = retrocedeHoras
-            entradaSegundos.value = 0
-            // entradaMinutos.value = 59
-        }
-        if(entradaMinutos.value >=0<59 && entradaSegundos.value ===0 ){
-            entradaMinutos.value = retrocedeMinutos
-            entradaSegundos.value = retrocedeSegundos
+            entradaSegundos.value = 59
+            entradaMinutos.value = 59
         }
 
-        // if (entradaMinutos.value === 0 && entradaSegundos.value === 0 && entradaHoras >=1){
-        //     entradaHoras.value = retrocedeHoras
-        //     entradaMinutos.value = entradaMinutos +1
-        // }
          if(entradaMinutos.value <=0 && entradaSegundos.value  <=0 && entradaHoras.value <=0){
              clearInterval(cronometro)
          }   
    
 
-    }, 200)
+    }, 1000)
 
 }
     // const parar = document.getElementById('btn-play-pause')
