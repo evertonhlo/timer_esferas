@@ -65,7 +65,7 @@ function cronometrando() {
         if (entradaSegundos.value  ==0 && entradaMinutos.value <=1 && entradaHoras.value >=1){
              entradaHoras.value = retrocedeHoras
             entradaSegundos.value = 0
-            entradaMinutos.value = 59
+            // entradaMinutos.value = 59
         }
         if(entradaMinutos.value >=0<59 && entradaSegundos.value ===0 ){
             entradaMinutos.value = retrocedeMinutos
