@@ -93,9 +93,9 @@ function cronometrando() {
 
         }
 
-        // if (entradaMinutos.value == '' && entradaSegundos.value == 0) {
-        //     retrocedHoras = entradaHoras.value--
-        // }
+        if (entradaMinutos.value == '' && entradaSegundos.value == 0) {
+            retrocedHoras = entradaHoras.value--
+        }
         if (entradaSegundos.value == 0) {
             entradaSegundos.value == ''
         }
@@ -122,24 +122,23 @@ function cronometrando() {
         }
 
 
-        const botaoResetar = document.getElementById('btn-resetar')
-
-        botaoResetar.addEventListener('click', zerar)
-
-        function zerar() {
-
-            console.log('oi')
-            clearInterval(cronometro)
-            entradaHoras.value = ''
-            entradaMinutos.value = ''
-            entradaSegundos.value = ''
-        }
-
-}}, 200)
+    }}, 200)
+    const botaoResetar = document.getElementById('btn-resetar')
+    
+    botaoResetar.addEventListener('click', zerar)
+    
+    
+    
+            function zerar() {
+    
+                clearInterval(cronometro)
+                console.log('oi')
+                entradaHoras.value = ''
+                entradaMinutos.value = ''
+                entradaSegundos.value = ''
+            }
 }
 
 
 
 
-
-// console.log(botaoCronometro)
